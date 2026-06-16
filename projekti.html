@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Projekti — Niko Juričić | Web Razvoj</title>
+  <meta name="description" content="Portfolio web projekata Nike Juričića — studenta informatike. WeatherApp, Todo Manager, Blog Template, Kalkulator i drugi projekti u HTML, CSS, JavaScript i React.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://nikojuricic.dev/projekti.html">
+  <meta property="og:title"       content="Projekti — Niko Juričić">
+  <meta property="og:description" content="Kolekcija web projekata: aplikacije, statičke stranice i eksperimenti u web tehnologijama.">
+  <meta property="og:image"       content="img/og-image.jpg">
+
+  <!-- Fontovi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Stil specifičan za stranicu projekata -->
+  <style>
+    /* Page hero */
+    .page-hero {
+      padding-block: var(--sp-16) var(--sp-12);
+      background: linear-gradient(135deg, var(--clr-bg) 60%, var(--clr-accent-bg));
+    }
+
+    .page-hero h1 { margin-bottom: var(--sp-4); }
+
+    .page-hero p {
+      font-size: var(--fs-md);
+      color: var(--clr-text-muted);
+      line-height: var(--lh-relaxed);
+      max-width: 56ch;
+    }
+
+    /* Filter gumbi */
+    .filter-bar {
+      display: flex;
+      gap: var(--sp-2);
+      flex-wrap: wrap;
+      margin-top: var(--sp-8);
+    }
+
+    .filter-btn {
+      padding: var(--sp-2) var(--sp-4);
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--clr-border);
+      background: transparent;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      letter-spacing: 0.04em;
+      color: var(--clr-text-muted);
+      cursor: pointer;
+      transition: all var(--transition);
+    }
+
+    .filter-btn:hover,
+    .filter-btn[aria-pressed="true"] {
+      border-color: var(--clr-accent);
+      color: var(--clr-accent);
+      background-color: var(--clr-accent-bg);
+    }
+
+    /* Projekt istaknuti badge */
+    .project-card--featured {
+      border-color: rgba(200,82,0,0.3);
+      position: relative;
+    }
+
+    .featured-badge {
+      position: absolute;
+      top: var(--sp-3);
+      right: var(--sp-3);
+      background-color: var(--clr-accent);
+      color: #fff;
+      font-size: var(--fs-xs);
+      font-weight: var(--fw-semibold);
+      padding: 2px var(--sp-3);
+      border-radius: var(--radius-full);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      z-index: 1;
+    }
+
+    /* Boje placeholder-a po projektu */
+    .placeholder-weather {
+      background: linear-gradient(135deg, #dbeafe 0%, #bfdbfe 100%);
+      color: #1e40af;
+    }
+
+    .placeholder-todo {
+      background: linear-gradient(135deg, #dcfce7 0%, #bbf7d0 100%);
+      color: #166534;
+    }
+
+    .placeholder-blog {
+      background: linear-gradient(135deg, #fef9c3 0%, #fef08a 100%);
+      color: #854d0e;
+    }
+
+    .placeholder-calc {
+      background: linear-gradient(135deg, #f3e8ff 0%, #e9d5ff 100%);
+      color: #6b21a8;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <a href="#main-content" class="skip-link">Preskoči na sadržaj</a>
+
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Niko Juričić – početna stranica">
+        <span>Niko</span> Juričić
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"
+             aria-hidden="true" tabindex="-1">
+      <label for="nav-toggle" class="hamburger"
+             aria-label="Otvori ili zatvori navigacijski izbornik">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="main-nav" id="main-nav" aria-label="Glavna navigacija">
+        <ul role="list">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="o-meni.html">O meni</a></li>
+          <li><a href="projekti.html" class="active" aria-current="page">Projekti</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-labelledby="projects-heading">
+      <div class="container">
+        <span class="section__label">Portoflio</span>
+        <h1 id="projects-heading">Moji projekti</h1>
+        <p>
+          Ovo su projekti na kojima sam radio — od kolegijskih zadaća
+          do vlastitih ideja. Svaki me je nečemu naučio: novoj tehnici,
+          boljoj organizaciji ili kako ne izgubiti živce s CSS-om.
+        </p>
+
+        <!-- Filter (vizualni, bez JS-a; opisni label za pristupačnost) -->
+        <nav class="filter-bar" aria-label="Filtriranje projekata po kategoriji (vizualni prikaz)">
+          <span class="filter-btn" aria-pressed="true">Svi</span>
+          <span class="filter-btn">HTML &amp; CSS</span>
+          <span class="filter-btn">JavaScript</span>
+          <span class="filter-btn">React</span>
+        </nav>
+      </div>
+    </section>
+
+    <!-- PROJEKTI GRID -->
+    <section class="section" aria-label="Popis projekata">
+      <div class="container">
+
+        <div class="projects-grid">
+
+          <!-- ===== PROJEKT 1: WeatherApp ===== -->
+          <article class="project-card project-card--featured" id="weatherapp">
+            <span class="featured-badge" aria-label="Istaknuti projekt">⭐ Istaknuto</span>
+
+            <div class="project-card__img-placeholder placeholder-weather"
+                 role="img"
+                 aria-label="Screenshot WeatherApp sučelja — karta s ikonama vremena">
+              🌤 WeatherApp
+            </div>
+
+            <div class="project-card__body">
+              <div class="project-card__tags" aria-label="Tehnologije korištene u projektu">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">Fetch API</span>
+                <span class="tag">OpenWeather</span>
+              </div>
+
+              <h2 style="font-size:var(--fs-lg); font-family:var(--font-body);
+                          font-weight:var(--fw-semibold); margin-bottom:var(--sp-3);">
+                WeatherApp
+              </h2>
+
+              <p class="project-card__desc">
+                Aplikacija za vremensku prognozu koja koristi OpenWeather API.
+                Korisnik upiše naziv grada, a aplikacija prikazuje trenutnu
+                temperaturu, opis vremena, vlažnost i brzinu vjetra. Podatci
+                se osvježavaju na zahtjev. Posebna pozornost posvećena je
+                responzivnosti i čitljivosti na svim veličinama ekrana.
+              </p>
+
+              <div class="project-card__links">
+                <a href="https://nikojuricic.github.io/weatherapp"
+                   class="btn btn--primary"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Otvori WeatherApp demo (otvara novu karticu)">
+                  🚀 Demo
+                </a>
+                <a href="https://github.com/nikojuricic/weatherapp"
+                   class="btn btn--ghost"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="GitHub kod WeatherApp (otvara novu karticu)">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ===== PROJEKT 2: Todo Manager ===== -->
+          <article class="project-card" id="todo">
+            <div class="project-card__img-placeholder placeholder-todo"
+                 role="img"
+                 aria-label="Screenshot Todo Manager sučelja s popisom zadataka">
+              ✅ Todo Manager
+            </div>
+
+            <div class="project-card__body">
+              <div class="project-card__tags" aria-label="Tehnologije">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">JavaScript</span>
+                <span class="tag">localStorage</span>
+              </div>
+
+              <h3>Todo Manager</h3>
+
+              <p class="project-card__desc">
+                Aplikacija za upravljanje zadacima bez ikakvih vanjskih biblioteka.
+                Podržava dodavanje, uređivanje i brisanje zadataka, filtriranje
+                po statusu (sve / aktivni / dovršeni) te pohranu u localStorage
+                — podatci ostaju i nakon zatvaranja preglednika.
+              </p>
+
+              <div class="project-card__links">
+                <a href="https://nikojuricic.github.io/todo-manager"
+                   class="btn btn--primary"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Otvori Todo Manager demo (otvara novu karticu)">
+                  🚀 Demo
+                </a>
+                <a href="https://github.com/nikojuricic/todo-manager"
+                   class="btn btn--ghost"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="GitHub kod Todo Manager (otvara novu karticu)">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ===== PROJEKT 3: Blog predložak ===== -->
+          <article class="project-card" id="blog">
+            <div class="project-card__img-placeholder placeholder-blog"
+                 role="img"
+                 aria-label="Screenshot Blog Template — prikaz naslovne stranice bloga">
+              📝 Blog Template
+            </div>
+
+            <div class="project-card__body">
+              <div class="project-card__tags" aria-label="Tehnologije">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+                <span class="tag">CSS Grid</span>
+                <span class="tag">Responzivno</span>
+              </div>
+
+              <h3>Blog Template</h3>
+
+              <p class="project-card__desc">
+                Višestranski statički blog predložak izrađen isključivo u HTML-u
+                i CSS-u. Uključuje naslovnicu s mrežom objava, stranicu pojedine
+                objave i arhivu. Dizajniran s naglaskom na tipografiju i čitljivost,
+                potpuno responzivan.
+              </p>
+
+              <div class="project-card__links">
+                <a href="https://nikojuricic.github.io/blog-template"
+                   class="btn btn--primary"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Otvori Blog Template demo (otvara novu karticu)">
+                  🚀 Demo
+                </a>
+                <a href="https://github.com/nikojuricic/blog-template"
+                   class="btn btn--ghost"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="GitHub kod Blog Template (otvara novu karticu)">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- ===== PROJEKT 4: Kalkulator ===== -->
+          <article class="project-card" id="kalkulator">
+            <div class="project-card__img-placeholder placeholder-calc"
+                 role="img"
+                 aria-label="Screenshot kalkulatora s tastaturom">
+              🔢 Kalkulator
+            </div>
+
+            <div class="project-card__body">
+              <div class="project-card__tags" aria-label="Tehnologije">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS Grid</span>
+                <span class="tag">JavaScript</span>
+              </div>
+
+              <h3>Kalkulator</h3>
+
+              <p class="project-card__desc">
+                Funkcionalni kalkulator s podrškom za tipkovnicu, izgrađen
+                koristeći CSS Grid za raspored tipki. Podržava osnovne
+                aritmetičke operacije, postotak i invertiranje predznaka.
+                Projekt s kojim sam savladala CSS Grid layouting.
+              </p>
+
+              <div class="project-card__links">
+                <a href="https://nikojuricic.github.io/kalkulator"
+                   class="btn btn--primary"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="Otvori Kalkulator demo (otvara novu karticu)">
+                  🚀 Demo
+                </a>
+                <a href="https://github.com/nikojuricic/kalkulator"
+                   class="btn btn--ghost"
+                   target="_blank" rel="noopener noreferrer"
+                   aria-label="GitHub kod Kalkulatora (otvara novu karticu)">
+                  GitHub ↗
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="section section--alt" aria-labelledby="cta-heading">
+      <div class="container" style="text-align:center;">
+        <span class="section__label">Suradnja</span>
+        <h2 id="cta-heading" class="section__title"
+            style="max-width:28ch; margin-inline:auto;">
+          Imaš projekt u glavi?
+        </h2>
+        <p class="section__desc"
+           style="margin-inline:auto; margin-bottom:var(--sp-8);">
+          Uvijek me veseli nov izazov — akademski, volonterski ili komercijalni.
+          Javi mi se i porazgovaramo.
+        </p>
+        <a href="kontakt.html" class="btn btn--primary">
+          Kontaktiraj me →
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Niko Juričić – početna">
+            <span>Niko</span> Juričić
+          </a>
+          <p class="footer-tagline">Frontend Developer · Zadar, Hrvatska</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navigacija u podnožju">
+          <ul role="list">
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="o-meni.html">O meni</a></li>
+            <li><a href="projekti.html">Projekti</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-social" aria-label="Društvene mreže">
+          <a href="https://github.com/nikojuricic"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub profil (otvara novu karticu)" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/nikojuricic"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn profil (otvara novu karticu)" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="mailto:niko.juricic@student.unizd.hr"
+             aria-label="Pošalji e-mail" title="E-mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Niko Juričić. Izrađeno isključivo u HTML-u i CSS-u.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

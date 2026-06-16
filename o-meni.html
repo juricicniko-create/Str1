@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>O meni — Niko Juričić | Frontend Developer</title>
+  <meta name="description" content="Upoznaj Niku Juričića — studenta informatike, frontend developera iz Zadara. Saznaj više o njegovim vještinama, obrazovanju i iskustvima u web razvoju.">
+
+  <meta property="og:type"        content="profile">
+  <meta property="og:url"         content="https://nikojuricic.dev/o-meni.html">
+  <meta property="og:title"       content="O meni — Niko Juričić">
+  <meta property="og:description" content="Student informatike i frontend developer iz Zadra. Vještine, obrazovanje i iskustvo.">
+  <meta property="og:image"       content="img/og-image.jpg">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <a href="#main-content" class="skip-link">Preskoči na sadržaj</a>
+
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Niko Juričić – početna stranica">
+        <span>Niko</span> Juričić
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"
+             aria-hidden="true" tabindex="-1">
+      <label for="nav-toggle" class="hamburger"
+             aria-label="Otvori ili zatvori navigacijski izbornik">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="main-nav" id="main-nav" aria-label="Glavna navigacija">
+        <ul role="list">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="o-meni.html" class="active" aria-current="page">O meni</a></li>
+          <li><a href="projekti.html">Projekti</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+
+    <section class="section" aria-labelledby="about-heading">
+      <div class="container">
+        <div class="about-grid">
+
+          <aside class="about-photo-col" aria-label="Fotografija i kontaktni linkovi">
+            <img src="img/niko-juricic-about.jpg"
+                 alt="Niko Juričić, portret za stranicu O meni"
+                 class="about-photo" width="400" height="400">
+
+            <nav class="social-links" aria-label="Profili na društvenim mrežama">
+              <a href="https://github.com/nikojuricic"
+                 class="social-link"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="GitHub profil (otvara novu karticu)">
+                <svg width="14" height="14" viewBox="0 0 24 24"
+                     fill="currentColor" aria-hidden="true">
+                  <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18
+                  6.839 9.504.5.092.682-.217.682-.483
+                  0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608
+                  1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088
+                  2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951
+                  0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65
+                  0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004
+                  1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546
+                  1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688
+                  0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678
+                  1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02
+                  10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+                </svg>
+                GitHub
+              </a>
+
+              <a href="https://linkedin.com/in/nikojuricic"
+                 class="social-link"
+                 target="_blank" rel="noopener noreferrer"
+                 aria-label="LinkedIn profil (otvara novu karticu)">
+                <svg width="14" height="14" viewBox="0 0 24 24"
+                     fill="currentColor" aria-hidden="true">
+                  <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2
+                  2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+                  <circle cx="4" cy="4" r="2"/>
+                </svg>
+                LinkedIn
+              </a>
+
+              <a href="img/cv-niko-juricic.pdf"
+                 class="social-link"
+                 download
+                 aria-label="Preuzmi životopis kao PDF">
+                <svg width="14" height="14" viewBox="0 0 24 24"
+                     fill="none" stroke="currentColor" stroke-width="2"
+                     aria-hidden="true">
+                  <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                  <polyline points="7 10 12 15 17 10"/>
+                  <line x1="12" y1="15" x2="12" y2="3"/>
+                </svg>
+                Životopis (PDF)
+              </a>
+            </nav>
+          </aside>
+
+          <div class="about-bio">
+            <span class="section__label">O meni</span>
+            <h1 id="about-heading">Pozdrav, ja sam Niko</h1>
+
+            <p>
+              Student sam informatike na Sveučilištu u Zadru,
+              s naglaskom na web tehnologije i razvoj korisničkih sučelja. Programiranjem
+              se bavim od 2022. godine, kada sam na prvoj godini studija otkrio da me
+              HTML i CSS "vuku" više od svega drugoga.
+            </p>
+
+            <p>
+              U slobodno vrijeme radim na vlastitim projektima — od jednostavnih
+              statičkih stranica do interaktivnih web aplikacija. Svaki projekt
+              za mene je prilika da naučim nešto novo: novu CSS tehniku,
+              bolji pristup organizaciji koda ili neku zanimljivu API integraciju.
+            </p>
+
+            <p>
+              Uz web razvoj, zanimaju me i načela pristupačnosti (a11y) jer
+              vjerujem da svaka stranica treba biti korisna svima — bez obzira
+              na uređaj, vezu ili tjelesna ograničenja. Zbog toga mi je
+              ovaj portfolio istovremeno i uvježbavanje tih principa.
+            </p>
+
+            <p>
+              Kad ne kodiram, najčešće sam s knjigom, na plaži ili
+              eksperimentiram s receptima u kuhinji.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt" aria-labelledby="skills-heading">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__label">Znanja i alati</span>
+          <h2 id="skills-heading" class="section__title">Tehničke vještine</h2>
+          <p class="section__desc">
+            Vještine koje koristim u svakodnevnom radu — ocijenjene
+            prema razini samopouzdanja, a ne mjerenim satima.
+          </p>
+        </header>
+
+        <div class="skills-grid">
+
+          <div class="skill-category">
+            <span class="skill-category__icon" aria-hidden="true">🧱</span>
+            <h3>Frontend osnove</h3>
+            <ul class="skill-list" role="list">
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">HTML5 (semantički)</span>
+                  <span class="skill-item__pct" aria-label="90 posto">90%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="HTML5 razina vještine 90%">
+                  <div class="skill-bar__fill" style="width:90%"></div>
+                </div>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">CSS3 (Flexbox, Grid)</span>
+                  <span class="skill-item__pct" aria-label="85 posto">85%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="CSS3 razina vještine 85%">
+                  <div class="skill-bar__fill" style="width:85%"></div>
+                </div>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Responzivni dizajn</span>
+                  <span class="skill-item__pct" aria-label="85 posto">85%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="Responzivni dizajn razina vještine 85%">
+                  <div class="skill-bar__fill" style="width:85%"></div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <span class="skill-category__icon" aria-hidden="true">⚙️</span>
+            <h3>Programiranje</h3>
+            <ul class="skill-list" role="list">
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">JavaScript (ES6+)</span>
+                  <span class="skill-item__pct" aria-label="75 posto">75%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="JavaScript razina vještine 75%">
+                  <div class="skill-bar__fill" style="width:75%"></div>
+                </div>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">React (osnove)</span>
+                  <span class="skill-item__pct" aria-label="55 posto">55%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="React razina vještine 55%">
+                  <div class="skill-bar__fill" style="width:55%"></div>
+                </div>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Python (osnove)</span>
+                  <span class="skill-item__pct" aria-label="50 posto">50%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="50" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="Python razina vještine 50%">
+                  <div class="skill-bar__fill" style="width:50%"></div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+          <div class="skill-category">
+            <span class="skill-category__icon" aria-hidden="true">🛠</span>
+            <h3>Alati i radno okruženje</h3>
+            <ul class="skill-list" role="list">
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Git i GitHub</span>
+                  <span class="skill-item__pct" aria-label="80 posto">80%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="Git razina vještine 80%">
+                  <div class="skill-bar__fill" style="width:80%"></div>
+                </div>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">Figma (prototipiranje)</span>
+                  <span class="skill-item__pct" aria-label="65 posto">65%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="Figma razina vještine 65%">
+                  <div class="skill-bar__fill" style="width:65%"></div>
+                </div>
+              </li>
+
+              <li class="skill-item">
+                <div class="skill-item__top">
+                  <span class="skill-item__name">VS Code + DevTools</span>
+                  <span class="skill-item__pct" aria-label="90 posto">90%</span>
+                </div>
+                <div class="skill-bar" role="progressbar"
+                     aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                     aria-label="VS Code razina vještine 90%">
+                  <div class="skill-bar__fill" style="width:90%"></div>
+                </div>
+              </li>
+
+            </ul>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="section" aria-labelledby="education-heading">
+      <div class="container">
+        <header class="section__header">
+          <span class="section__label">Put do ovdje</span>
+          <h2 id="education-heading" class="section__title">Obrazovanje</h2>
+        </header>
+
+        <div style="max-width: 640px;">
+          <ol class="timeline" aria-label="Kronološki pregled obrazovanja">
+
+            <li class="timeline-item">
+              <span class="timeline-year">2022 – danas</span>
+              <h3>Preddiplomski studij informatike</h3>
+              <p class="timeline-institution">
+                Tehnički fakultet, Sveučilište u Zadru
+              </p>
+              <p class="timeline-desc">
+                Studij s naglaskom na programiranje, algoritme i web tehnologije.
+                Relevantni kolegiji: Uvod u web tehnologije, Programiranje u Pythonu,
+                Algoritmi i strukture podataka, Baze podataka, Računalne mreže.
+                Prosječna ocjena: 4.1.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-year">2018 – 2022</span>
+              <h3>Pomorski nautičar</h3>
+              <p class="timeline-institution">
+                Prometno-tehnička škola, Šibenik
+              </p>
+              <p class="timeline-desc">
+                Matura s odličnim uspjehom. Na izbornoj maturi položio informatiku.
+              </p>
+            </li>
+
+            <li class="timeline-item">
+              <span class="timeline-year">2023</span>
+              <h3>Online tečaj: JavaScript30</h3>
+              <p class="timeline-institution">
+                Wes Bos — JavaScript30 (Samoučenje)
+              </p>
+              <p class="timeline-desc">
+                Dovršio tečaj 30 JavaScript projekata u 30 dana,
+                što mi je značajno poboljšalo razumijevanje DOM manipulacije,
+                događaja i modernog JavaScripta.
+              </p>
+            </li>
+
+          </ol>
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Niko Juričić – početna">
+            <span>Niko</span> Juričić
+          </a>
+          <p class="footer-tagline">Frontend Developer · Zadar, Hrvatska</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navigacija u podnožju">
+          <ul role="list">
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="o-meni.html">O meni</a></li>
+            <li><a href="projekti.html">Projekti</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-social" aria-label="Društvene mreže">
+          <a href="https://github.com/nikojuricic"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub profil (otvara novu karticu)" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18
+              6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608
+              1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951
+              0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/nikojuricic"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn profil (otvara novu karticu)" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2
+              2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="mailto:niko.juricic@student.unizd.hr"
+             aria-label="Pošalji e-mail" title="E-mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Niko Juričić. Izrađeno isključivo u HTML-u i CSS-u.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>

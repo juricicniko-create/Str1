@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="hr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- SEO -->
+  <title>Kontakt — Niko Juričić | Pišite mi</title>
+  <meta name="description" content="Kontaktirajte Niku Juričića — studenta informatike i frontend developera iz Zadra. Dostupan za freelance projekte, suradnje i akademske razmjene.">
+
+  <!-- Open Graph -->
+  <meta property="og:type"        content="website">
+  <meta property="og:url"         content="https://nikojuricic.dev/kontakt.html">
+  <meta property="og:title"       content="Kontakt — Niko Juričić">
+  <meta property="og:description" content="Pošaljite poruku Niki Juričića. Odgovaram u roku 24–48 sati.">
+  <meta property="og:image"       content="img/og-image.jpg">
+
+  <!-- Fontovi -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Stilovi specifični za kontakt stranicu -->
+  <style>
+    .page-hero {
+      padding-block: var(--sp-16) var(--sp-12);
+      background: linear-gradient(135deg, var(--clr-bg) 60%, var(--clr-accent-bg));
+    }
+
+    .page-hero h1 { margin-bottom: var(--sp-4); }
+
+    .page-hero p {
+      font-size: var(--fs-md);
+      color: var(--clr-text-muted);
+      line-height: var(--lh-relaxed);
+      max-width: 52ch;
+    }
+
+    /* Poruka o uspjehu (CSS: vidljiva samo kad forma ima :target ili :valid) */
+    .form-success {
+      display: none;
+      padding: var(--sp-4) var(--sp-6);
+      background-color: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: var(--radius-md);
+      color: #166534;
+      font-size: var(--fs-sm);
+      font-weight: var(--fw-medium);
+      margin-bottom: var(--sp-6);
+      align-items: center;
+      gap: var(--sp-3);
+    }
+
+    /* Submit gumb u formi */
+    .btn--submit {
+      width: 100%;
+      justify-content: center;
+      padding: var(--sp-4) var(--sp-6);
+      font-size: var(--fs-base);
+    }
+
+    /* Dostupnost: obavezno polje */
+    .required-note {
+      font-size: var(--fs-xs);
+      color: var(--clr-text-muted);
+      margin-bottom: var(--sp-8);
+    }
+
+    .required-note abbr {
+      color: var(--clr-accent);
+      text-decoration: none;
+      font-weight: var(--fw-bold);
+    }
+
+    /* Vizualna potvrda ispravnosti */
+    .form-control:valid:not(:placeholder-shown) {
+      border-color: #86efac;
+    }
+
+    /* FAQ dio */
+    .faq-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--sp-4);
+      margin-top: var(--sp-8);
+    }
+
+    .faq-item {
+      padding: var(--sp-5);
+      background-color: var(--clr-surface-alt);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--clr-accent);
+    }
+
+    .faq-item h3 {
+      font-size: var(--fs-sm);
+      font-family: var(--font-body);
+      font-weight: var(--fw-semibold);
+      margin-bottom: var(--sp-2);
+    }
+
+    .faq-item p {
+      font-size: var(--fs-sm);
+      color: var(--clr-text-muted);
+      line-height: var(--lh-relaxed);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ===== HEADER ===== -->
+  <header class="site-header">
+    <a href="#main-content" class="skip-link">Preskoči na sadržaj</a>
+
+    <div class="header-inner">
+      <a href="index.html" class="logo" aria-label="Niko Juričić – početna stranica">
+        <span>Niko</span> Juričić
+      </a>
+
+      <input type="checkbox" id="nav-toggle" class="nav-toggle"
+             aria-hidden="true" tabindex="-1">
+      <label for="nav-toggle" class="hamburger"
+             aria-label="Otvori ili zatvori navigacijski izbornik">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
+
+      <nav class="main-nav" id="main-nav" aria-label="Glavna navigacija">
+        <ul role="list">
+          <li><a href="index.html">Početna</a></li>
+          <li><a href="o-meni.html">O meni</a></li>
+          <li><a href="projekti.html">Projekti</a></li>
+          <li><a href="kontakt.html" class="active" aria-current="page">Kontakt</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <!-- ===== MAIN ===== -->
+  <main id="main-content">
+
+    <!-- PAGE HERO -->
+    <section class="page-hero" aria-labelledby="contact-page-heading">
+      <div class="container">
+        <span class="section__label">Piši mi</span>
+        <h1 id="contact-page-heading">Kontakt</h1>
+        <p>
+          Odgovaram na sve poruke u roku 24–48 sati. Dostupan sam
+          za akademske suradnje, mentorstvo, freelance projekte
+          i svako zanimljivo pitanje o webu.
+        </p>
+      </div>
+    </section>
+
+    <!-- KONTAKT LAYOUT -->
+    <section class="section" aria-labelledby="contact-form-heading">
+      <div class="container contact-layout">
+
+        <!-- ===== LIJEVA KOLONA: Informacije ===== -->
+        <aside aria-label="Kontaktne informacije">
+          <span class="section__label">Dohvati me</span>
+          <h2 id="contact-form-heading">Kako stupiti u kontakt</h2>
+
+          <p class="contact-info__desc">
+            Preferiram komunikaciju putem e-maila, ali možeš me
+            naći i na GitHubu ili LinkedInu. Na sve upite odgovaraju
+            unutar jednog radnog dana.
+          </p>
+
+          <!-- Kontaktni detalji -->
+          <dl>
+            <div class="contact-detail">
+              <div class="contact-detail__icon" aria-hidden="true">📧</div>
+              <div>
+                <dt class="contact-detail__label">E-mail</dt>
+                <dd class="contact-detail__value">
+                  <a href="mailto:niko.juricic@student.unizd.hr"
+                     style="color: var(--clr-accent);">
+                    niko.juricic@student.unizd.hr
+                  </a>
+                </dd>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail__icon" aria-hidden="true">📍</div>
+              <div>
+                <dt class="contact-detail__label">Lokacija</dt>
+                <dd class="contact-detail__value">Zadar, Hrvatska</dd>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail__icon" aria-hidden="true">⏱</div>
+              <div>
+                <dt class="contact-detail__label">Odgovor u roku</dt>
+                <dd class="contact-detail__value">24 – 48 sati radnim danom</dd>
+              </div>
+            </div>
+
+            <div class="contact-detail">
+              <div class="contact-detail__icon" aria-hidden="true">💼</div>
+              <div>
+                <dt class="contact-detail__label">Dostupnost</dt>
+                <dd class="contact-detail__value">
+                  Otvorena za part-time i freelance
+                </dd>
+              </div>
+            </div>
+          </dl>
+
+          <!-- Česta pitanja -->
+          <div class="faq-list" aria-label="Česta pitanja">
+            <div class="faq-item">
+              <h3>Radiš li volonterski?</h3>
+              <p>
+                Da, ali samo za neprofitne ili edukativne projekte koji
+                mi pružaju iskustvo i prilike za učenje.
+              </p>
+            </div>
+
+            <div class="faq-item">
+              <h3>Možeš li raditi na komercijalnom projektu?</h3>
+              <p>
+                Mogu, pogotovo ako je projekt manji opseg i fleksibilan
+                vremenski okvir koji se može uskladiti s obavezama na faksu.
+              </p>
+            </div>
+          </div>
+
+        </aside>
+
+        <!-- ===== DESNA KOLONA: Forma ===== -->
+        <div class="contact-form-wrap">
+
+          <!--
+            NAPOMENA ZA OBRANU:
+            Forma je izrađena s punom HTML5 validacijom:
+            - required atribut na obaveznim poljima
+            - type="email" za automatsku provjeru formata e-maila
+            - minlength za minimalnu duljinu poruke
+            - pattern atribut za provjeru formata
+            - autocomplete atributi za bolje korisničko iskustvo
+            - label za svako polje (pristupačnost)
+          -->
+
+          <form
+            action="https://formspree.io/f/TVOJ_KOD"
+            method="POST"
+            novalidate
+            aria-label="Kontakt forma"
+          >
+            <!-- Obavijest o obaveznim poljima -->
+            <p class="required-note">
+              Polja označena s <abbr title="obavezno polje" aria-label="zvjezdica označava obavezno polje">*</abbr> su obavezna.
+            </p>
+
+            <!-- Redak 1: Ime i Prezime -->
+            <div class="form-row">
+
+              <div class="form-group">
+                <label for="ime" class="form-label">
+                  Ime
+                  <abbr title="obavezno polje" aria-label="obavezno">*</abbr>
+                </label>
+                <input
+                  type="text"
+                  id="ime"
+                  name="ime"
+                  class="form-control"
+                  placeholder="Npr. Marko"
+                  required
+                  minlength="2"
+                  maxlength="50"
+                  autocomplete="given-name"
+                  aria-required="true"
+                  aria-describedby="ime-hint"
+                >
+                <span id="ime-hint" class="form-hint">
+                  Minimalno 2 znaka.
+                </span>
+              </div>
+
+              <div class="form-group">
+                <label for="prezime" class="form-label">
+                  Prezime
+                  <abbr title="obavezno polje" aria-label="obavezno">*</abbr>
+                </label>
+                <input
+                  type="text"
+                  id="prezime"
+                  name="prezime"
+                  class="form-control"
+                  placeholder="Npr. Perić"
+                  required
+                  minlength="2"
+                  maxlength="60"
+                  autocomplete="family-name"
+                  aria-required="true"
+                >
+              </div>
+
+            </div>
+
+            <!-- E-mail -->
+            <div class="form-group">
+              <label for="email" class="form-label">
+                E-mail adresa
+                <abbr title="obavezno polje" aria-label="obavezno">*</abbr>
+              </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-control"
+                placeholder="npr. marko.peric@email.com"
+                required
+                autocomplete="email"
+                aria-required="true"
+                aria-describedby="email-hint"
+              >
+              <span id="email-hint" class="form-hint">
+                Koristim isključivo za odgovor na tvoju poruku.
+              </span>
+            </div>
+
+            <!-- Tema upita (select) -->
+            <div class="form-group">
+              <label for="tema" class="form-label">
+                Tema upita
+                <abbr title="obavezno polje" aria-label="obavezno">*</abbr>
+              </label>
+              <select
+                id="tema"
+                name="tema"
+                class="form-control"
+                required
+                aria-required="true"
+              >
+                <option value="" disabled selected>Odaberi temu...</option>
+                <option value="freelance">Freelance projekt</option>
+                <option value="suradnja">Akademska suradnja</option>
+                <option value="staza">Staza / Praksa</option>
+                <option value="mentorstvo">Mentorstvo</option>
+                <option value="ostalo">Ostalo</option>
+              </select>
+            </div>
+
+            <!-- Poruka -->
+            <div class="form-group">
+              <label for="poruka" class="form-label">
+                Poruka
+                <abbr title="obavezno polje" aria-label="obavezno">*</abbr>
+              </label>
+              <textarea
+                id="poruka"
+                name="poruka"
+                class="form-control"
+                placeholder="Napiši ukratko o čemu se radi, što trebaš i koji je vremenski okvir..."
+                required
+                minlength="20"
+                maxlength="2000"
+                rows="6"
+                aria-required="true"
+                aria-describedby="poruka-hint"
+              ></textarea>
+              <span id="poruka-hint" class="form-hint">
+                Minimalno 20 znakova. Što više detalja, to bolje.
+              </span>
+            </div>
+
+            <!-- Suglasnost / Checkbox -->
+            <div class="form-checkbox">
+              <input
+                type="checkbox"
+                id="suglasnost"
+                name="suglasnost"
+                required
+                aria-required="true"
+                aria-describedby="suglasnost-label"
+              >
+              <label for="suglasnost" id="suglasnost-label">
+                Slažem se da se moji podaci (ime i e-mail) pohrane isključivo
+                u svrhu odgovora na ovaj upit. Ne koristim ih u marketinške svrhe.
+                <abbr title="obavezno polje" aria-label="obavezno"> *</abbr>
+              </label>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn--primary btn--submit">
+              Pošalji poruku →
+            </button>
+
+          </form>
+
+          <!--
+            NAPOMENA:
+            Forma šalje podatke na Formspree (besplatna usluga za statičke stranice).
+            Zamijeni "TVOJ_KOD" sa stvarnim Formspree endpoint-om.
+            Alternativno: koristi Netlify Forms (samo dodaj netlify atribut u <form>).
+          -->
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===== FOOTER ===== -->
+  <footer class="site-footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-inner">
+
+        <div class="footer-brand">
+          <a href="index.html" class="logo" aria-label="Niko Juričić – početna">
+            <span>Niko</span> Juričić
+          </a>
+          <p class="footer-tagline">Frontend Developer · Zadar, Hrvatska</p>
+        </div>
+
+        <nav class="footer-nav" aria-label="Navigacija u podnožju">
+          <ul role="list">
+            <li><a href="index.html">Početna</a></li>
+            <li><a href="o-meni.html">O meni</a></li>
+            <li><a href="projekti.html">Projekti</a></li>
+            <li><a href="kontakt.html">Kontakt</a></li>
+          </ul>
+        </nav>
+
+        <div class="footer-social" aria-label="Društvene mreže">
+          <a href="https://github.com/nikojuricic"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="GitHub profil (otvara novu karticu)" title="GitHub">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.02 10.02 0 0 0 22 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          <a href="https://linkedin.com/in/nikojuricic"
+             target="_blank" rel="noopener noreferrer"
+             aria-label="LinkedIn profil (otvara novu karticu)" title="LinkedIn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"/>
+              <circle cx="4" cy="4" r="2"/>
+            </svg>
+          </a>
+          <a href="mailto:niko.juricic@student.unizd.hr"
+             aria-label="Pošalji e-mail" title="E-mail">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                 viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                 stroke-width="2" aria-hidden="true">
+              <rect x="2" y="4" width="20" height="16" rx="2"/>
+              <path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+            </svg>
+          </a>
+        </div>
+
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2025 Niko Juričić. Izrađeno isključivo u HTML-u i CSS-u.</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
